@@ -1,0 +1,13 @@
+
+CREATE TABLE departments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  code TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  manager_id INTEGER,
+  phone TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (manager_id) REFERENCES user_profiles(id)
+);
+
+ALTER TABLE user_profiles ADD COLUMN department_id INTEGER;
